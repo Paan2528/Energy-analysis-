@@ -1,9 +1,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-df = pd.read_csv('/Users/yatoum/Documents/Solar-energy-project/data/raw/Plant_1_Generation_Data.csv')
+# Load data
+from src.data_loader import load_data
+df = load_data('/Users/yatoum/Documents/Solar-energy-project/data/raw/Plant_1_Generation_Data.csv')
 
 # clear NaN values
-df = df.dropna()
+from src.data_cleaning import clean_data
+df = clean_data(df)
 
 # change string to number
 df['DC_POWER'] = pd.to_numeric(df['DC_POWER'], errors='coerce')
@@ -16,21 +19,15 @@ df['day'] = df['DATE_TIME'].dt.date
 
 # resample data to daily frequency, summing up 'DC_POWER' valuesit 
 
-daily = df.groupby("day")['DC_POWER'].sum()
+from src.analysis import calculate_daily_energy
+daily = calculate_daily_energy(df)
 
 'graph daily data'
-plt.figure(figsize=(12, 6))
-plt.plot(daily.index, daily.values, label='Daily DC Power', color='blue') 
-plt.legend()
-plt.show()
-
+from src.visualization import plot_daily_energy
+plot_daily_energy(daily)
 
 print("daily:")
 print(daily.describe())
-
-
-print("min:", df['DC_POWER'].min())
-print("max:", df['DC_POWER'].max())
 
 # ====== Analysis =======
 
