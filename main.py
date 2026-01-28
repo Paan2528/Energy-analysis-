@@ -14,7 +14,8 @@ df['DATE_TIME'] = pd.to_datetime(df['DATE_TIME'], dayfirst=True)
 #only kepp day
 df['day'] = df['DATE_TIME'].dt.date
 
-# resample data to daily frequency, summing up 'DC_POWER' values
+# resample data to daily frequency, summing up 'DC_POWER' valuesit 
+
 daily = df.groupby("day")['DC_POWER'].sum()
 
 'graph daily data'
@@ -36,6 +37,6 @@ print("max:", df['DC_POWER'].max())
 average_energy = daily.mean()
 print("\nAverage daily energy generation:", average_energy)
 print("\nDays with below-average energy:")
-for day, value in daily.items():
+for day, value in daily.items(): 
     if value < average_energy:
         print(day, "->", value) 
