@@ -45,3 +45,5 @@ Solar-energy-project/
 2. Cleaned and aggregated daily energy data
  ![Graph](output/Daily_Energy.png)
 
+
+## Project 2 ##
