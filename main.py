@@ -1,3 +1,4 @@
+from src.analysis import daily_energy_summary
 from src.analysis import find_below_average_days
 from src.visualization import plot_daily_energy
 from src.analysis import calculate_daily_energy
@@ -38,3 +39,14 @@ avg, below_avg_days = find_below_average_days(daily)
 print("\nAverage daily energy generation:", avg)
 print("\nDays with below-average energy:")
 print(below_avg_days)
+
+###### Project 2 #######
+
+
+data_path = "data/raw/Plant_1_Generation_Data.csv"
+
+df = load_data(data_path)
+df = clean_data(df)
+daily_df = daily_energy_summary(df)
+
+print(daily_df.head())
