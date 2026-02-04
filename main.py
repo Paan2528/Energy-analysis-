@@ -1,3 +1,4 @@
+from src.analysis import detect_anomalies
 from src.analysis import daily_energy_summary
 from src.analysis import find_below_average_days
 from src.visualization import plot_daily_energy
@@ -50,3 +51,9 @@ df = clean_data(df)
 daily_df = daily_energy_summary(df)
 
 print(daily_df.head())
+
+avg, threshold, anomalies = detect_anomalies(daily)
+print("\nAverage Daily Energy:", avg)
+print("Threshold Value:", threshold)
+print("Anomalous Days:")
+print(anomalies)

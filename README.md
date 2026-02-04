@@ -43,5 +43,5 @@ Solar-energy-project/
 ## output
 1. A line chart showing daily solar energy production
 2. Cleaned and aggregated daily energy data
- ![Daily Solar Energy Production](output/Daily%20Energy%20Generation.png)
- 
+ ![Graph](output/Daily_Energy.png)
+

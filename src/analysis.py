@@ -17,5 +17,25 @@ def find_below_average_days(daily_series):
 
 
 def daily_energy_summary(df):
-    daily = df.groupby("date")["energy_kWh"].sum().reset_index()
+    daily = df.groupby("DATE_TIME")["DC_POWER"].sum().reset_index()
     return daily
+
+### Threshold anomaly detection ####
+
+
+def detect_anomalies(daily_series, threshold_ratio=0.5):
+    """Detect anomalies based on a threshold ratio.
+
+    Parameters:
+     daily_series (pd.Series): Series with daily energy values.
+     threshold_ratio (float): Ratio of the average energy (default is 0.5)
+
+    Returns:
+      averge_energy
+      threshold_value
+      anomaly_day(Series)
+    """
+    average_energy = daily_series.mean()
+    threshold_value = average_energy * threshold_ratio
+    anomaly_days = daily_series[daily_series < threshold_value]
+    return average_energy, threshold_value, anomaly_days
