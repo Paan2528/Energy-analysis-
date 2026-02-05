@@ -39,3 +39,30 @@ def detect_anomalies(daily_series, threshold_ratio=0.5):
     threshold_value = average_energy * threshold_ratio
     anomaly_days = daily_series[daily_series < threshold_value]
     return average_energy, threshold_value, anomaly_days
+
+### Performance ###
+
+
+def calculate_performance_metrics(daily_series, anomaly_series=None):
+
+    metrics = {}
+
+# besic metrics
+    metrics['average_energy'] = daily_series.mean()
+    metrics['total_energy'] = daily_series.sum()
+    metrics['max_energy'] = daily_series.max()
+    metrics['min_energy'] = daily_series.min()
+    metrics['std_deviation'] = daily_series.std()
+# find which day had min/max
+    metrics['day_with_max_energy'] = daily_series.idxmax()
+    metrics['day_with_min_energy'] = daily_series.idxmin()
+
+# anomaly metrics
+    if anomaly_series is not None:
+        metrics['num_anomalies'] = len(anomaly_series)
+        metrics['anomaly_percentage'] = (
+            len(anomaly_series) / len(daily_series)) * 100
+    else:
+        metrics['num_anomalies'] = 0
+        metrics['anomaly_percentage'] = 0.0
+    return metrics

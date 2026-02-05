@@ -1,3 +1,9 @@
+from src.visualization import (
+    plot_error_distribution,
+    plot_error_over_time,
+    plot_prediction_vs_actual,
+)
+from src.analysis import calculate_performance_metrics
 from src.analysis import detect_anomalies
 from src.analysis import daily_energy_summary
 from src.analysis import find_below_average_days
@@ -57,3 +63,23 @@ print("\nAverage Daily Energy:", avg)
 print("Threshold Value:", threshold)
 print("Anomalous Days:")
 print(anomalies)
+
+## performance ##
+metrics = calculate_performance_metrics(daily, anomalies)
+print("\nPerformance Metrics:")
+for key, value in metrics.items():
+    print(f"{key}: {value}")
+
+# Visualization for Project 2 ##
+
+predicted = daily.rolling(window=3).mean().dropna()
+actual = daily.loc[predicted.index]
+errors = actual - predicted
+
+plot_prediction_vs_actual(actual, predicted)
+plot_error_distribution(errors)
+plot_error_over_time(errors.index, errors)
+
+## check##
+print(actual.min(), actual.max())
+print(predicted.min(), predicted.max())
