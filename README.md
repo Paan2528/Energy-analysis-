@@ -47,3 +47,68 @@ Solar-energy-project/
 
 
 ## Project 2 ##
+
+Solar Energy Analysis & Prediction Project
+
+## 📌 Overview
+This project analyzes solar energy generation data and evaluates energy performance using Python.
+The goal is to simulate a real-world energy data workflow including data cleaning, analysis, anomaly detection, and prediction evaluation.
+
+This project demonstrates skills in data processing, visuallization, and software engineering structure.
+
+## 📌 Objective
+- Process raw solar energy generation data
+- Analyze daily energy production treds
+- Detect abnormal energy  generation patterns
+- Compare predicted vs actual energy generation
+- Visualize results using professional graphs
+
+## 📌 Technologies Used
+- Python
+- Pandas
+- Matplotlib
+- NumPy
+- Scikit-learn (for metrics)
+
+## 📌 Project Structure
+
+Solar-energy-project/
+|
+|-data/
+|   |-raw/
+|       |-Plant_1_Genetarion_Data.csv
+|-notebooks/
+|   |-exploratin.ipynd
+|-src/
+|   |---init--.py
+|   |-analysis.py
+|   |-data_cleaning.py
+|   |-data_loader.py
+|   |-visualization.py
+|-main.py
+|-README.md
+
+## Workflow
+1. Data Loading
+Loads raw solar generation dataset.
+2. Data Cleaning
+- Removes invalid values
+- Convert data types
+- Handles missing types
+3. Data Analysis
+- Calculates daily energy production
+- Detects below-average energy days
+- Performs anomaly dection
+4. Prediction Evaluation
+Compares predicted vs actual energy generation
+
+## Example Output
+- Daily Energy Generation
+- Anomaly Detection
+- Prediction vs Actual
+
+## Performance Metrics
+The project evaluates model performance using:
+ - MAE (Mean Absolute Error)
+ - RMSE (Root Mean Square Error)
+
