@@ -79,7 +79,3 @@ errors = actual - predicted
 plot_prediction_vs_actual(actual, predicted)
 plot_error_distribution(errors)
 plot_error_over_time(errors.index, errors)
-
-## check##
-print(actual.min(), actual.max())
-print(predicted.min(), predicted.max())
