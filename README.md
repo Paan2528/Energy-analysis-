@@ -158,3 +158,62 @@ Final Check - Solar Energy Monitoring System
 () Commit
 () Push to GitHub
 () can README show a picture
+
+#☀️Solar Energy Analysis Dashboard
+
+Full-stack data projrct using **FAstAPI + SQLite + Streamlit**
+Analyze daily solar energy generation and detect anomalies
+
+## 🚀 Project Overview
+This Project:
+- Loads solar generation data from CSV
+- Stores cleaned data in SQLite
+- Exposes REST API endpoints via FastAPI
+- Provides interactive dashboard via Streamlit
+- Detects anomaly days in energy production
+
+## Architecture
+CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
+
+## Tech Stack
+- Python 3.9+
+- FastAPI
+- SQlite
+- Pandas
+- Streamlit
+- Plotly (for interactive charts)
+## API Endpoints
+## 1. Get daily energy
+## 2. Energy Metrics
+## 3. Anomaly Days
+
+## Setup Instructions
+1. Clone repo
+2. Install dependencies
+3. Populate database
+4. Run FasAPI backend
+5. Run Streamlit Dashboard
+
+## Features
+ - Data range filtering
+ - KPI metrics (avg, max, total, anomaly%)
+ - Interactive energy trend chart
+ - Anomaly highlighting
+ - Clean modular backend structure
+
+ ## Project Structure
+
+ ## Learning Outcomes
+- REST API development with FastAPI
+- SQL querying & ETL aggregation
+- Data cleaning & ETL pipeline
+- Full-Stack data app architecture
+- Interactive dashboard development
+
+## Future Improvments
+- Dockerize application
+- Deploy to cloud(Render/Railway)
+- Add authentication
+- Improve anomaly detection logic
+- add rolling average & forecasting
+
