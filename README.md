@@ -184,15 +184,52 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
 - Plotly (for interactive charts)
 ## API Endpoints
 ## 1. Get daily energy
+    ```json
+        [
+            {
+                "day": "2020-05-15",
+                "energy": 5627239.14,
+                "is_anomaly": false
+            }
+        ]
 ## 2. Energy Metrics
+    Return:
+        ```json
+        {
+            "day": 34,
+            "avg_energgy": 5678123.45,
+            "min_energy": 5208696.38,
+            "max_energy": 7898965.11,
+            "total_energy": 192345678.23,
+            "anomaly_days": 2,
+            "anomaly_pct: 5.88
+        }
 ## 3. Anomaly Days
+        ```GET/energy/anomalies
 
 ## Setup Instructions
 1. Clone repo
+    ```bash
+        git clone <your-repo-url>
+        cd Solar-energy-project
 2. Install dependencies
+    ```bash
+        pip install -r requirements.txt
+    or namually:
+        pip install fastapi uvicorn streamlit pandas plotly
 3. Populate database
+    ```bash
+        python3 scripts/populate_db.py
 4. Run FasAPI backend
+    ```bash
+        python3 -m uvicorn backend.api:app --relode --port 8002
+    Open:
+        http://127.0.0.1:8002/docs
 5. Run Streamlit Dashboard
+    ```bash
+        python3 -m streamlit run dashboard/app.py
+    Open:
+        http://localhost:8501
 
 ## Features
  - Data range filtering
@@ -202,6 +239,23 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
  - Clean modular backend structure
 
  ## Project Structure
+ 
+ Solar-energy-project/
+ |__backend/
+ |  |__api.py
+ |  |__bd.py
+ |  |__energy.db
+ |
+ |__scripts/
+ |  |__populate_db.py
+ |
+ |__dashboard/
+ |  |__app.py
+ |__data/
+ |  |__raw/
+ |
+ |__requirements.txt
+ |__README.md
 
  ## Learning Outcomes
 - REST API development with FastAPI
@@ -216,4 +270,4 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
 - Add authentication
 - Improve anomaly detection logic
 - add rolling average & forecasting
-
+ 

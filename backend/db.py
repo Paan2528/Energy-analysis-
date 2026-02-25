@@ -1,7 +1,8 @@
 import sqlite3
 from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "energy.db"
+from backend.config import settings
+
+DB_PATH = Path(settings.db_path).resolve()
 
 
 def get_connection():
