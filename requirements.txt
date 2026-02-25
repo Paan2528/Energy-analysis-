@@ -1,8 +1,6 @@
-pandas
-numpy
-matplotlib
 fastapi
 uvicorn
-streamlit
+pandas
 requests
-
+streamlit
+python-dotenv

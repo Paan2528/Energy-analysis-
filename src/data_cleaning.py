@@ -1,3 +1,3 @@
 def clean_data(df):
-    df= df.dropna()
+    df = df.dropna()
     return df

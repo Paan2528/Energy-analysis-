@@ -113,56 +113,7 @@ The project evaluates model performance using:
  - RMSE (Root Mean Square Error)
 
 
-## Project 3 ##
-Final Check - Solar Energy Monitoring System 
-
-# Project Structire
-() src/
-() backend/
-() dashboard/
-() data/
-() output/
-# Depandencies
-() 'requirements.tet incould packet: pandas, matplotlib, numpy, streamlit, requests,  fastapi, uvicorn
-() instellamd run: pip install -r requirements.txt
-# Data Pipeline (projrct 1+2 Logic)
-() load CSV
-() clean data (NaN/Data type)
-() aggregate daily (data --> Day)
-() anamaly detection (threshold_ratio)
-() forecasting baseline (rolling mean)
-() metrics: avg/min/max/total/anomaly_count
-# Database (SQL-SQLite)
-() .backend/energy.db
-() daily_energy table (colume:day, energy, is_anomaly)
-() script populate DB (input daily to DB)
-# API (FastAPI)
-() run uvicorrn backend.api:app --reload
-() open docs: http://127.0.0.1:8000/docs
-() Endpoint work:
-    () GET /energy/daily
-    () GET /energy/anomalies
-    () GET /energy/metrics
-# Dashboard (Streamlit UI)
-() run streamlis run dashboard/app.py
-() Retrieving data from API.
-() show grah 'daily energy'
-() show anomaly days
-() show metrics 
-() adjust threshold in UI and anomaly chenge (pass API calculate)
-# Documenttation (README)
-() explain Project 1 + 2 + 3 
-() how to run : pipeline/populate DB, API, Dashbord
-() picture and screenshot UI in README
-# GitHub
-() Commit
-() Push to GitHub
-() can README show a picture
-
-#☀️Solar Energy Analysis Dashboard
-
-Full-stack data projrct using **FAstAPI + SQLite + Streamlit**
-Analyze daily solar energy generation and detect anomalies
+## Project 3 ## Solar Energy Monitoring System 
 
 ## 🚀 Project Overview
 This Project:

@@ -57,14 +57,15 @@ def energy_metrics():
     cur = conn.cursor()
 
     cur.execute(
-        "SELECT COUNT(*), AVG(energy), MIN(energy), MAX(energy), SUM(energy) FROM daily_energy")
+        "SELECT COUNT(*), AVG(energy), MIN(energy), MAX(energy), SUM(energy) FROM daily_energy"
+    )
     row = cur.fetchone()
 
     if not row:
         conn.close()
         raise HTTPException(status_code=404, detail="No energy data found")
 
-    days, avg_e, min_e, max_e, sum_e = row
+    day, avg_e, min_e, max_e, sum_e = row
 
     cur.execute("SELECT COUNT(*) FROM daily_energy WHERE is_anomaly =1")
     anomaly_row = cur.fetchone()
@@ -72,7 +73,7 @@ def energy_metrics():
 
     conn.close()
 
-    days = int(days or 0)
+    days = int(day or 0)
     return {
         "day": days,
         "avg_energy": float(avg_e or 0),
@@ -80,7 +81,7 @@ def energy_metrics():
         "max_energy": float(max_e or 0),
         "total_energy": float(sum_e or 0),
         "anomaly_days": anomaly_days,
-        "anomaly_pct": (anomaly_days / days * 100) if days > 0 else 0.0
+        "anomaly_pct": (anomaly_days / days * 100) if days > 0 else 0.0,
     }
 
 

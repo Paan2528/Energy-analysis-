@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API = "http://localhost:8000"
+API = "http://localhost:8002"
 
 st.title("Solar Energy Dashboard (project 3)")
 

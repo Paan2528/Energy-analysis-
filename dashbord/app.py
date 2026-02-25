@@ -28,8 +28,7 @@ end = st.date_input("End", max_day)
 
 
 # Daily Data
-daily = requests.get(f"{API}/energy/daily",
-                     params={"start": start, "end": end}).json()
+daily = requests.get(f"{API}/energy/daily", params={"start": start, "end": end}).json()
 df = pd.DataFrame(daily)
 df["day"] = pd.to_datetime(df["day"])
 df = df.sort_values("day")

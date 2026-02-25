@@ -12,13 +12,13 @@ def get_connection():
 def init_db():
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute('''
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS daily_energy (
             day TEXT PRIMARY KEY,
             energy REAL NOT NULL,
             is_anomaly INTEGER NOT NULL 
         )
-    ''')
+    """)
     conn.commit()
     conn.close()
 
