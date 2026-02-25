@@ -66,7 +66,7 @@ def energy_metrics():
 
     days, avg_e, min_e, max_e, sum_e = row
 
-    cur.execute("SELECT COUNT(*) FROM daily_energy WHERE ia_anomaly =1")
+    cur.execute("SELECT COUNT(*) FROM daily_energy WHERE is_anomaly =1")
     anomaly_row = cur.fetchone()
     anomaly_days = anomaly_row[0] if anomaly_row else 0
 
