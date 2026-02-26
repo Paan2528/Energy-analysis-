@@ -70,24 +70,7 @@ This project demonstrates skills in data processing, visuallization, and softwar
 - NumPy
 - Scikit-learn (for metrics)
 
-## 📌 Project Structure
-
-Solar-energy-project/
-|
-|-data/
-|   |-raw/
-|       |-Plant_1_Genetarion_Data.csv
-|-notebooks/
-|   |-exploratin.ipynd
-|-src/
-|   |---init--.py
-|   |-analysis.py
-|   |-data_cleaning.py
-|   |-data_loader.py
-|   |-visualization.py
-|-main.py
-|-README.md
-
+## 📌 Project Structure 
 ## Workflow
 1. Data Loading
 Loads raw solar generation dataset.
