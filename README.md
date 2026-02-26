@@ -164,7 +164,7 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
         python3 -m streamlit run dashboard/app.py
     Open:
         http://localhost:8501
-
+```
 ## Features
  - Data range filtering
  - KPI metrics (avg, max, total, anomaly%)
@@ -204,4 +204,87 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
 - Add authentication
 - Improve anomaly detection logic
 - add rolling average & forecasting
- 
+
+##Project 4 Production - ready Backend
+# Solar energy Monitoring System
+
+A production-style backend for monitoring and analyzing solar generation data.
+This Project builds on previous data analysis work and evolves into a structured software engineering system including:
+    - Data ingestion
+    - Database storage
+    - REST API
+    - Dashboard visualization
+    - Automated testing
+    - CI pipelline
+# System Achitecture
+Data Flow:
+
+CSV Data
+-> ETL Script
+-> SQLite Database
+-> FastAPI Backend
+-> Streamlit Dashboard
+-> GitHub Actions (CI Testing)
+
+## Features
+### Backend (FastAPI)
+    -`/health` -  API health check
+    -`/energy/daily`- Daily Energy data (supports start & query parmas)
+    -`/energy/anomalies`- Filtered anomaly days
+    -`/energy/metrics`- Aggregated statistics
+
+### Database
+    - SQLite
+    - Daily aggregated
+    - Anomaly flag storage
+    - Configurable DB path via `-env`
+### Dashborad (Streamlit)
+    - Data range filtering
+    - Energy displayed in MW
+    - Line chart visualization
+    - Anomaly table
+### Devops / Quality
+    - Pytest unit tests
+    - Ruff (lining)
+    - Black (formating)
+    - GitHub action CI
+
+## Setup
+
+1. Create virtual enviroment
+```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+```
+2. Install dependencis
+```bash
+    pip install -r requirements.txt
+    pip install -r requirements-dev.txt
+```
+3. Initialize Database 
+```bash
+    python backend/db.py
+```
+4. Populate database
+```bash
+    python scripts/populate_db.py
+```
+5. Run API
+```bash
+    pythin -m uvicorn backend.api:app --reload --port 8002
+```
+6. Run Dahboard
+```bash
+    streamlit run dashboard/app.py
+```
+## Runtest
+```bash
+    pytest
+```
+
+## CI Pipline
+GitHub actions automatically:
+ . Installs dependencies
+ . Runs tests
+ . Validates code on every push
+
