@@ -174,7 +174,7 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
  - Clean modular backend structure
 
  ## Project Structure
- 
+ ```
  Solar-energy-project/
  |__backend/
  |  |__api.py
@@ -191,7 +191,7 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
  |
  |__requirements.txt
  |__README.md
-
+```
  ## Learning Outcomes
 - REST API development with FastAPI
 - SQL querying & ETL aggregation
