@@ -164,7 +164,8 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
         python3 -m streamlit run dashboard/app.py
     Open:
         http://localhost:8501
-```
+    ```
+
 ## Features
  - Data range filtering
  - KPI metrics (avg, max, total, anomaly%)
@@ -205,7 +206,7 @@ CSV -> Data Cleining -> SQLite -> FastAPI -> Streamlit Dasboard
 - Improve anomaly detection logic
 - add rolling average & forecasting
 
-##Project 4 Production - ready Backend
+## Project 4 Production - ready Backend
 # Solar energy Monitoring System
 
 A production-style backend for monitoring and analyzing solar generation data.
