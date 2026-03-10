@@ -26,9 +26,35 @@ max_day = df_all["day"].max().date()
 start = st.date_input("Start", min_day)
 end = st.date_input("End", max_day)
 
+# Add dropdown
+method = st.selectbox(
+    "Anomaly detection method",
+    ["threshold", "zscore"]
+)
+
+# Call API anomalies
+anoms = requests.get(
+    f"{API}/energy/anomalies",
+    params={
+        "method": method,
+        "start": str(start),
+        "end": str(end),
+    }
+).json()
+
+# show anomalies table
+st.subheader("Detected Anomalies")
+
+anoms_df = pd.DataFrame(anoms)
+
+if not anoms_df.empty:
+    st.dataframe(anoms_df)
+else:
+    st.write("No anomalies found.")
 
 # Daily Data
-daily = requests.get(f"{API}/energy/daily", params={"start": start, "end": end}).json()
+daily = requests.get(f"{API}/energy/daily",
+                     params={"start": start, "end": end}).json()
 df = pd.DataFrame(daily)
 df["day"] = pd.to_datetime(df["day"])
 df = df.sort_values("day")
