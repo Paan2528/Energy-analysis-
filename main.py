@@ -1,3 +1,5 @@
+from flask import app
+
 from src.visualization import (
     plot_error_distribution,
     plot_error_over_time,
@@ -81,3 +83,8 @@ errors = actual - predicted
 plot_prediction_vs_actual(actual, predicted)
 plot_error_distribution(errors)
 plot_error_over_time(errors.index, errors)
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}

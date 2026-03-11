@@ -13,4 +13,4 @@ class Settings:
     log_level: str = os.getenv("LOG_LEVEL", "INFO")
 
 
-setting = Settings()
+settings = Settings()

@@ -26,7 +26,7 @@ def daily(
 ):
     if start and end and start > end:
         raise HTTPException(status_code=400, detail="start must be <= end")
-    return service.get_daily_energy(start, end)
+    return service.get_daily(start, end)
 
 
 @router.get("/energy/metrics", response_model=Metrics)
@@ -38,11 +38,12 @@ def metrics(service: EnergyService = Depends(get_service)):
 
 
 @router.get("/energy/anomalies", response_model=list[DailyEnergy])
-def anomaöies(
-    methond: str = Query(default="threshold"),
+def anomalies(
+    method: str = Query(default="threshold"),
     start: date | None = Query(default=None),
     end: date | None = Query(default=None),
+    service: EnergyService = Depends(get_service)
 ):
     if start and end and start > end:
         raise HTTPException(status_code=400, detail="start must be <= end")
-    return service.detect_anomalies(methond, start, end)
+    return service.detect_anomalies(method, start, end)
