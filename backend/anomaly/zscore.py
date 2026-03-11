@@ -8,7 +8,7 @@ class ZScoreDetector(AnomalyDetector):
 
     def detect(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
-        mean = df["enmergy"].mean()
+        mean = df["energy"].mean()
         std = df["energy"].std()
         zscore = (df["energy"] - mean) / std
         df["is_anomaly"] = zscore.abs() > self.z

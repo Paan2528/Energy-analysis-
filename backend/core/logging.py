@@ -1,9 +1,9 @@
 import logging
-from backend.core.config import settings
+from backend.core.config import Settings, settings
 
 
 def setup_logging() -> None:
     logging.basicConfig(
-        level=getattr(logging, settings.log_level, logging.INFO),
+        level=getattr(logging, Settings.log_level, logging.INFO),
         format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
     )
