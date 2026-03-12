@@ -1,26 +1,33 @@
+import os
 import streamlit as st
 import requests
 import pandas as pd
-import os
+
 
 API = os.getenv("API_URL", "http://127.0.0.1:8002")
 
 st.title("Solar Energy Dashboard (project 4)")
 
 # Metics
-metrics = requests.get(f"{API}/energy/metrics").json()
+try:
+    metrics = requests.get(f"{API}/energy/metrics").json()
+except:
+    st.error("API not available")
+    st.stop()
 
 c1, c2, c3, c4 = st.columns(4)
-c1.metric("Days", metrics.get("day", 0))
+c1.metric("Days", metrics.get("days", 0))
 c2.metric("Avg Energy (MW)", f"{metrics.get('avg_energy', 0)/1000:,.2f}")
 c3.metric("Max Energy (MW)", f"{metrics.get('max_energy', 0)/1000:,.2f}")
 c4.metric("Anomaly%", f"{metrics.get('anomaly_pct', 0):,.1f}%")
 
 # Project4
 st.subheader("Filter by date")
+
 all_daily = requests.get(f"{API}/energy/daily").json()
 df_all = pd.DataFrame(all_daily)
 df_all["day"] = pd.to_datetime(df_all["day"])
+
 min_day = df_all["day"].min().date()
 max_day = df_all["day"].max().date()
 
