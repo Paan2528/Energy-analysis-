@@ -292,5 +292,179 @@ GitHub actions automatically:
 ## Dashborad Output
 ![Graph](output/Dashborad.png)
 
+## Solar Energy Monitoring System
+# Overview
+This project implements a solar energy monitoring system designed to process, analyze, and visualize photovoltaic power generation data.
 
+The system processes raw CSV datasets, stores aggregated results in a SLQLite database, exposes the data through a REST API, and visualizes the information using an interactive dasboard.
 
+The project evolved gradually from simple data analysis scripts into a modular backend system that follows software engineering principles such as layered architecture, testing, CI pipelines, and containerization.
+
+# Objectives
+
+The main goal of this project is to design a modular system capable of analyzing solar energy production and detecting anomalies.
+ 
+ The system aims to:
+ - Process raw photovoltaic production datasets
+ - Store aggregated energy data in a database
+ - Provide access to data through a REST API
+ - Visualize energy production through a dashboard
+ - Implement multiple anomaly detection methods
+ - Appy sofware engineering best practices (testing, CI, containerization)
+
+# System Architecture
+The system follows a layered architecture to separate responsibilities and maintain clean code organization.
+
+Raw CSV Data
+     │
+     ▼
+Data Processing (Python + Pandas)
+     │
+     ▼
+SQLite Database
+     │
+     ▼
+Repository Layer
+     │
+     ▼
+Service Layer (Business Logic)
+     │
+     ▼
+FastAPI Backend
+     │
+     ▼
+REST API
+     │
+     ▼
+Streamlit Dashboard
+     │
+     ▼
+User
+
+# Project Struture
+Solar-energy-project
+│
+├── backend
+│   ├── api
+│   ├── services
+│   ├── repositories
+│   ├── anomaly
+│   ├── models
+│   ├── core
+│   ├── db
+│   └── main.py
+│
+├── dashboard
+│   └── app.py
+│
+├── scripts
+│   └── populate_db.py
+│
+├── data
+│   └── raw
+│
+├── tests
+│
+├── Dockerfile
+├── Dockerfile.dashboard
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+
+## Technology Stack
+# Programming Languages
+- python
+- SQL
+- YAML
+- Dockerfile syntax
+- Markdown
+
+## Libraries
+# Data Processing
+- pandas
+- numpy
+Used for:
+- reading CSV datasets
+- cleaning aand transforming data
+- daily aggregation of energy production
+
+## Database
+- sqlite3
+Used to sore processed energy data.
+## Backend API
+- FastAPI
+- Pydantic
+- Uvicorn
+FastAPI is used to build the REST API and handle HTTP requests.
+## Dashboard
+- Streamlit
+- requests
+- pandas
+The dashboard displays energy metrics, charts, and anomaly detection results.
+## Testing
+- pytest
+- fastapi.testclient
+Used for automated testing of API endpoints and anomaly detection logic.
+## Code Quality
+- Black
+- Ruff 
+Used for code formatting and linting
+
+## Main Features
+# Energy Data Processing
+- CSV data ingestion
+- Data cleaning and transformation
+- Daily energy aggregation
+
+## Anomaly Detection
+Two anomaly detection methods are implemented:
+    - Threshold-based detection
+    - Z-score detection
+Users can select the method theough the dashboard interface.
+
+## REST API
+The backend provides several API endpoints:
+
+/health
+/energy/daily
+/energy/metrics
+/energy/anomalies
+
+The API returns JSON responses containing energy production statistics and anomaly detection results.
+
+## Interactives Dashboard
+The Streamlit dashboard provides:
+- Daily energy visualization
+- Summary statistics
+- Anomaly detection results
+- Date range filtering
+- Selection of anomaly detection method
+
+## Docker Deployment
+The entire system can be launched using Docker.
+Run the following command:
+````
+    docker compose up --build
+````
+After starting the containers, the following services will be available:
+API documentation:
+````
+    http://localhost:8002/docs
+````
+Dashboard interface:
+````
+    http://localhost:8501
+````
+
+## Testing
+Automated tests are implemented using pytest.
+
+Run the tests using:
+````
+    pytest
+````
+The tests validate
+- API endpoints
+- anomaly dection algorithms
+
+## Continuous Integration
